@@ -63,4 +63,16 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="9.0.70" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="AboutPage.xaml.cs">
+	    <DependentUpon>AboutPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AboutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
