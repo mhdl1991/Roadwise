@@ -1,14 +1,16 @@
-namespace Roadwise;
-
-public partial class MapPage : ContentPage
+namespace Roadwise
 {
-	public MapPage()
+	public partial class MapPage : ContentPage
 	{
-		InitializeComponent();
-	}
+		public MapPage()
+		{
+			InitializeComponent();
+		}
 
-	private void locationClick() {
-		// This function will react to the user clicking on a location on a fake map
-		return;
+		private void locationClick()
+		{
+			// This function will react to the user clicking on a location on a fake map
+			return;
+		}
 	}
 }
