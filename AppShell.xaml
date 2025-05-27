@@ -18,7 +18,8 @@
             ContentTemplate="{DataTemplate local:AboutPage}"
             Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
         <!--
-            
+            There needs to be a page with a map that has clickable locations
+            clicking on the locations should give you a statistics view of the location
         -->
     </TabBar>
 

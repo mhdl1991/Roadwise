@@ -1,6 +1,6 @@
 namespace Roadwise;
 
-public partial class NewPage1 : ContentPage
+public partial class AboutPage : ContentPage
 {
     private async void LearnMore_Clicked(object sender, EventArgs e)
     {
@@ -8,7 +8,7 @@ public partial class NewPage1 : ContentPage
         await Launcher.Default.OpenAsync("https://aka.ms/maui");
     }
 
-    public NewPage1()
+    public AboutPage()
 	{
 		InitializeComponent();
 	}
