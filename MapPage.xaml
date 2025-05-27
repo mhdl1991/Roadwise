@@ -7,5 +7,9 @@
             Text="Welcome to the Map. Please select a location"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        
+        <Image Source="map.jpg"
+            SemanticProperties.Description="Here is the map. Where do you wish to go?"
+            HeightRequest="1280" />
     </VerticalStackLayout>
 </ContentPage>
