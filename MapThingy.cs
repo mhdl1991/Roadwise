@@ -65,7 +65,21 @@ namespace Roadwise
                 ((GraphicsView)sender).Invalidate();
             }
         }
+        public void OnTap(PointF tap)
+        {
+            // Adjust for pan/zoom
+            var x = (tap.X - translation.X) / scale;
+            var y = (tap.Y - translation.Y) / scale;
 
+            foreach (var (id, area) in hotspots)
+            {
+                if (area.Contains(x, y))
+                {
+                    onClick(id);
+                    break;
+                }
+            }
+        }
 
     }
 }

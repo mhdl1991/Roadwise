@@ -22,7 +22,17 @@ namespace Roadwise
             pinch.PinchUpdated += Drawable.OnPinchUpdated;
             InteractiveCanvas.GestureRecognizers.Add(pinch);
 
-
+            // Tap for hotspots
+            var tap = new TapGestureRecognizer();
+            tap.Tapped += (s, e) =>
+            {
+                if (e is TappedEventArgs args)
+                {
+                    var loc = args.GetPosition(InteractiveCanvas);
+                    Drawable.OnTap(new Microsoft.Maui.Graphics.PointF((float)loc.X, (float)loc.Y));
+                }
+            };
+            InteractiveCanvas.GestureRecognizers.Add(tap);
         }
 
         void OnPointClicked(string id)
