@@ -28,8 +28,15 @@ namespace Roadwise
             {
                 if (e is TappedEventArgs args)
                 {
-                    var loc = args.GetPosition(InteractiveCanvas);
-                    Drawable.OnTap(new Microsoft.Maui.Graphics.PointF((float)loc.X, (float)loc.Y));
+                    // I swear to christ, ChatGPT causes more problems than it solves.
+                    // Or at least, you need to be ready to ask it a TON of follow up questions and already know coding
+                    // Let this be a warning to all of you AI fanboys
+                    if (args.GetPosition(InteractiveCanvas) is Point loc)
+                    {
+                        double X = loc.X;
+                        double Y = loc.Y;
+                        Drawable.OnTap(new((float)X, (float)Y));
+                    }
                 }
             };
             InteractiveCanvas.GestureRecognizers.Add(tap);
