@@ -13,21 +13,17 @@ namespace Roadwise
         private readonly Microsoft.Maui.Graphics.IImage img;
         private readonly List<(string id, RectF area)> Hotspots;
         private float scale = 1f;
-        private PointF translation = new PointF(0, 0);
+        private PointF translation = new(0f, 0f);
         private readonly Action<string> onClick;
 
         public MapThingy(Action<string> onClickCallback)
         {
             onClick = onClickCallback;
             // Load image from resources
-            img = (Microsoft.Maui.Graphics.IImage?)ImageSource.FromFile("map.jpg");
+            img = ImageSource.FromFile("map.jpg") as Microsoft.Maui.Graphics.IImage;
 
             // Define clickable zones
-            Hotspots = new List<(string, RectF)>
-            {
-                ("Point1", new RectF(100, 150, 50, 50)),
-                ("Point2", new RectF(300, 200, 50, 50))
-            };
+            Hotspots = [("Point1", new(100, 150, 50, 50)), ("Point2", new(300, 200, 50, 50))];
         }
 
         public void Draw(ICanvas canvas, RectF dirtyRect)
@@ -38,13 +34,13 @@ namespace Roadwise
             canvas.DrawImage(img, 0, 0, 1000, 1000);
 
             // Optional: draw hotspots overlay for debugging
-            foreach (var (id, area) in Hotspots)
+            foreach ((string id, RectF area) in Hotspots)
             {
                 canvas.FillColor = Colors.Red.WithAlpha(0.3f);
                 canvas.FillRectangle(area);
             }
-
             canvas.RestoreState();
+            return;
         }
 
         public void OnPanUpdated(object sender, PanUpdatedEventArgs e)
@@ -71,7 +67,7 @@ namespace Roadwise
             var x = (tap.X - translation.X) / scale;
             var y = (tap.Y - translation.Y) / scale;
 
-            foreach (var (id, area) in hotspots)
+            foreach ((string id, RectF area) in Hotspots)
             {
                 if (area.Contains(x, y))
                 {
