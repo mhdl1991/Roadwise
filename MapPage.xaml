@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawable="clr-namespace:Roadwise"
              x:Class="Roadwise.MapPage">
+    <!-- <ContentPage.Resources>
+    <drawable:InteractiveDrawable x:Key="Drawable"/>
+    </ContentPage.Resources> -->
+    
     <Grid>
+        <Label x:Name="MapLabel"
+                   Text="Select a location on the map below"
+                   FontSize="Medium" />
         <GraphicsView x:Name="InteractiveCanvas"
                       Drawable="{Binding Drawable}"
                       HorizontalOptions="Fill"

@@ -47,7 +47,6 @@ namespace Roadwise
             //ChartPanel.IsVisible = true;
             //ChartLabel.Text = $"Displaying data for: {id}";
             // TODO: load specific chart/table here
-            System.Console.Write($"Displaying data for {id}");
         }
 
     }

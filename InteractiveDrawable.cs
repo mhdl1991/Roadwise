@@ -3,6 +3,8 @@ using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
 using IImage = Microsoft.Maui.Graphics.IImage;
+using Microsoft.Maui.Graphics.Platform;
+using System.Reflection;
 
 namespace Roadwise
 {
@@ -11,7 +13,7 @@ namespace Roadwise
     // it has a number of hotspots that can be clicked
     public class InteractiveDrawable : IDrawable
     {
-        private readonly IImage image;
+        private IImage image;
         private readonly List<(string id, RectF area)> Hotspots;
         private float scale = 1f;
         private PointF translation = new(0f, 0f);
@@ -21,7 +23,8 @@ namespace Roadwise
         {
             onClick = onClickCallback;
             // Load image from resources
-            var get_img = ImageSource.FromFile("Images/map.jpg") as IImage;
+
+            var get_img = ImageSource.FromFile("Resources/Images/map.jpg") as IImage;
             if (get_img is IImage) {
                 image = get_img;
             }
@@ -35,10 +38,19 @@ namespace Roadwise
 
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
+            var get_img = ImageSource.FromFile("Resources/Images/map.jpg") as IImage;
+            if (get_img is IImage)
+            {
+                image = get_img;
+            }
+
             canvas.SaveState();
             canvas.Translate(translation.X, translation.Y);
             canvas.Scale(scale,scale);
 
+            // Somehow adding this check made the app stop crashing
+            // I think this means that the app is somehow failing to load the image
+            // So that's some progress right there
             if (image != null)
             {
                 canvas.DrawImage(image, 0, 0, image.Width, image.Height);
