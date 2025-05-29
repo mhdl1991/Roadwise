@@ -4,8 +4,8 @@
              x:Class="Roadwise.AboutPage">
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
+            <Image Source="car-png-39025.png"
+                   SemanticProperties.Description="car"
                    HeightRequest="64" />
             <Label FontSize="22" FontAttributes="Bold" Text="Roadwise" VerticalOptions="End" />
             <Label FontSize="22" Text="v0.01" VerticalOptions="End" />
