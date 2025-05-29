@@ -4,7 +4,7 @@
              x:Class="Roadwise.AboutPage">
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
-            <Image Source="car-png-39025.png"
+            <Image Source="car.png"
                    SemanticProperties.Description="car"
                    HeightRequest="64" />
             <Label FontSize="22" FontAttributes="Bold" Text="Roadwise" VerticalOptions="End" />
