@@ -6,4 +6,10 @@ public partial class MapPage2 : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+    {
+		// Okay, now what?
+
+    }
+
 }

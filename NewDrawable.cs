@@ -7,13 +7,22 @@ using System.Threading.Tasks;
 using System.Reflection;
 using IImage = Microsoft.Maui.Graphics.IImage;
 using Microsoft.Maui.Graphics.Platform;
+using System.Windows.Input;
 
 namespace Roadwise
 {
-    public class NewDrawable : IDrawable
-    {   
+    public class NewDrawable : IDrawable, ICommand
+    {
+        protected GraphicsView _view = new();
+
+        // clickable points on the image
         private List<(string id, PointF area)> Hotspots;
         public NewDrawable() {
+
+            _view.Drawable = this;
+
+            _view.GestureRecognizers.Add(new TapGestureRecognizer { Command = this });
+
             // What if I were to create a list of hotspots here
             // Define clickable zones
             Hotspots = [
@@ -22,6 +31,18 @@ namespace Roadwise
                 ("Point3", new(200, 400))
             ];
         }
+
+        event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
+        public bool CanExecute(object cmdObject)
+        {
+            return true;
+        }
+
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
             canvas.SaveState();
@@ -48,6 +69,13 @@ namespace Roadwise
             }
 
             canvas.RestoreState();
+        }
+
+        public void Execute(object cmdObject)
+        {
+            // handle the clicked event here
+            // display some kind of message?
+
         }
     }
 }

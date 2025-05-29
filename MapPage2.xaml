@@ -15,12 +15,16 @@
             HorizontalOptions="Center" />
         
         <!-- This had better work -->
+        <!-- It kinda is, but now I gotta move along -->
         <GraphicsView 
                 x:Name="Canvas"
                 Drawable="{StaticResource NewDrawable}"
                 HeightRequest="500"
-                WidthRequest="500" />
-        
-        
+                WidthRequest="500" >
+            <GraphicsView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGraphicsViewTapped"/>
+            </GraphicsView.GestureRecognizers>
+        </GraphicsView>
+
     </VerticalStackLayout>
 </ContentPage>
