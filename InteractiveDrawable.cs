@@ -8,7 +8,7 @@ namespace Roadwise
     // this class is used to hold the fake map that the demo will use
     // it can be zoomed in or out and panned
     // it has a number of hotspots that can be clicked
-    public class MapThingy : IDrawable
+    public class InteractiveDrawable : IDrawable
     {
         private readonly Microsoft.Maui.Graphics.IImage img;
         private readonly List<(string id, RectF area)> Hotspots;
@@ -16,14 +16,20 @@ namespace Roadwise
         private PointF translation = new(0f, 0f);
         private readonly Action<string> onClick;
 
-        public MapThingy(Action<string> onClickCallback)
+        public InteractiveDrawable(Action<string> onClickCallback)
         {
             onClick = onClickCallback;
             // Load image from resources
-            img = ImageSource.FromFile("map.jpg") as Microsoft.Maui.Graphics.IImage;
+            var get_img = ImageSource.FromFile("map.jpg") as Microsoft.Maui.Graphics.IImage;
+            if (get_img is Microsoft.Maui.Graphics.IImage) {
+                img = get_img;
+            }
 
             // Define clickable zones
-            Hotspots = [("Point1", new(100, 150, 50, 50)), ("Point2", new(300, 200, 50, 50))];
+            Hotspots = [
+                ("Point1", new(100, 150, 50, 50)), 
+                ("Point2", new(300, 200, 50, 50))
+            ];
         }
 
         public void Draw(ICanvas canvas, RectF dirtyRect)

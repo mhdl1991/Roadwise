@@ -5,12 +5,12 @@ namespace Roadwise
 {
 	public partial class MapPage : ContentPage
 	{
-        public MapThingy Drawable { get; set; }
+        public InteractiveDrawable Drawable { get; set; }
         public MapPage()
 		{
 			InitializeComponent();
             // Be careful of variable names
-            Drawable = new MapThingy(OnPointClicked);
+            Drawable = new InteractiveDrawable(OnPointClicked);
             BindingContext = this;
 
             // Add pan and pinch gestures
