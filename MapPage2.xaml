@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roadwise.MapPage2"
              xmlns:drawable="clr-namespace:Roadwise"
-             Title="MapPage2">
+             Title="Map Page">
     <ContentPage.Resources>
         <drawable:NewDrawable x:Key="NewDrawable"/>
     </ContentPage.Resources>
