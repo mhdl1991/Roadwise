@@ -16,8 +16,12 @@ namespace Roadwise
 
             // Position inside window
             Point? windowPosition = e.GetPosition(null);
-
-
+            if (windowPosition.HasValue)
+            {
+                Console.WriteLine($"{windowPosition}");
+                Shell.Current.GoToAsync("Roadwise.GraphThingPage");
+                
+            }
 
         }
 

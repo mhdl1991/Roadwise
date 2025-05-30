@@ -11,13 +11,24 @@
         <ShellContent
             Title="About"
             ContentTemplate="{DataTemplate local:AboutPage}"
-            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
+            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" 
+            Route="About"
+            />
         
         
         <ShellContent
             Title="Map"
             ContentTemplate="{DataTemplate local:MapPage2}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" 
+            Route="Map"
+            />
+
+        <ShellContent
+            Title="Map"
+            ContentTemplate="{DataTemplate local:GraphThingPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" 
+            Route="Stats"
+            />
 
 
         <!-- Old Map Page -->

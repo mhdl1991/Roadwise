@@ -18,5 +18,10 @@
              SemanticProperties.Description="stats"
             HeightRequest="200" />
 
+        <Label 
+            Text="Based on the historic data provided- it is probably safe to travel this route"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
     </VerticalStackLayout>
 </ContentPage>
