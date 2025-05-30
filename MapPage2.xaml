@@ -22,7 +22,8 @@
                 HeightRequest="500"
                 WidthRequest="500" >
             <GraphicsView.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnGraphicsViewTapped"/>
+                <TapGestureRecognizer Tapped="OnGraphicsViewTapped"
+                                      Buttons="Primary,Secondary" />
             </GraphicsView.GestureRecognizers>
         </GraphicsView>
 

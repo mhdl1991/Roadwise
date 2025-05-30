@@ -32,10 +32,17 @@ namespace Roadwise
             ];
         }
 
-        event EventHandler CanExecuteChanged
+        event EventHandler? ICommand.CanExecuteChanged
         {
-            add { }
-            remove { }
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public bool CanExecute(object cmdObject)
