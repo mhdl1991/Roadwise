@@ -1,9 +1,10 @@
-namespace Roadwise;
-
-public partial class NewPage1 : ContentPage
+namespace Roadwise
 {
-	public NewPage1()
+	public partial class GraphThingPage : ContentPage
 	{
-		InitializeComponent();
+		public GraphThingPage()
+		{
+			InitializeComponent();
+		}
 	}
 }
